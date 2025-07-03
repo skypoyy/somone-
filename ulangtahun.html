@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap');
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    
+    .title-font {
+      font-family: 'Pacifico', cursive;
+    }
+    
+    .photo-card {
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .photo-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background-color: #f00;
+      opacity: 0;
+      animation: confettiFall 5s linear infinite;
+    }
+    
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    
+    .heart {
+      color: #ff4081;
+      animation: heartbeat 1.5s infinite;
+    }
+    
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.1); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    
+    .audio-control {
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .memory-scroll {
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+    }
+    
+    .memory-item {
+      scroll-snap-align: start;
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+  <!-- Hero Section -->
+  <div class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+    <!-- Confetti Background -->
+    <div id="confetti-container"></div>
+    
+    <div class="text-center px-4 z-10">
+      <h1 class="text-5xl md:text-7xl font-bold text-pink-600 title-font mb-4">Selamat Ulang Tahun!</h1>
+      
+      <div class="heart text-6xl mb-8">❤️</div>
+      
+      <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+        Hari ini adalah hari spesialmu! Semoga hari ulang tahunmu penuh dengan kebahagiaan, cinta, dan banyak kejutan menyenangkan.
+      </p>
+      
+      <div class="audio-control bg-white p-6 rounded-2xl shadow-lg mx-auto mb-12">
+        <h3 class="text-xl font-semibold mb-4">Tolong di putar dongg cantikk 🤗</h3>
+        <audio controls class="w-full">
+          <!-- Sumber audio umum yang tersedia -->
+          <source src="audio/Kahitna - Cantik (Official Music Video).mp3" type="audio/mpeg">
+          Browser Anda tidak mendukung elemen audio.
+        </audio>
+      </div>
+      
+      <button onclick="scrollToMemories()" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">
+        Lihat Kenangan Kita
+      </button>
+    </div>
+  </div>
+  
+  <!-- Gallery Section -->
+  <div id="memory-gallery" class="py-16 px-4 bg-gradient-to-b from-white to-pink-50">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-12 text-gray-800 title-font">Kenangan Spesial Kita</h2>
+      
+      <div class="flex flex-wrap justify-center gap-6 mb-12">
+        <!-- Photo Cards -->
+        <div class="photo-card w-full sm:w-5/12 md:w-3/12 rounded-xl overflow-hidden bg-white">
+          <img src="gambar/WhatsApp Image 2025-06-27 at 00.00.12 (1).jpeg" alt="Pasangan tersenyum dengan latar belakang matahari terbenam di pantai" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="font-semibold text-lg mb-2">Fotoboth tergokillll</h3>
+            <p class="text-gray-600">waktu itu lucu yaa kitaa 😁😁</p>
+            <p class="text-gray-600">mana waktu kita bolak balik indomaret wkwkwkwk dipikirrr pikir ngakak jugaa yaa ga sadar semua yang ada disitu bayar semua , tapi yasudalah itu jadi momen yang kocak abizz</p>
+            <div class="text-yellow-500 mt-2">★★★★★</div>
+          </div>
+        </div>
+        
+        <div class="photo-card w-full sm:w-5/12 md:w-3/12 rounded-xl overflow-hidden bg-white">
+          <img src="gambar/WhatsApp Image 2025-06-27 at 19.46.39.jpeg" alt="Pasangan berfoto dengan kue ulang tahun dan lilin menyala" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="font-semibold text-lg mb-2">Ulang Tahun Tahun Lalu</h3>
+            <p class="text-gray-600">kamu indahh banget yaa dengan bunga yang aku kasih itu mana kamu cantik banget waktu ishh gemesin tauu 😀😀</p>
+            <div class="text-yellow-500 mt-2">★★★★★</div>
+          </div>
+        </div>
+        
+        <div class="photo-card w-full sm:w-5/12 md:w-3/12 rounded-xl overflow-hidden bg-white">
+          <img src="gambar/WhatsApp Image 2025-06-27 at 00.00.15 (1).jpeg" alt="Pasangan berpose lucu dengan topi pesta di sebuah kafe" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="font-semibold text-lg mb-2">Fotoboth pertama kali anjayy</h3>
+            <p class="text-gray-600">hmms, ini pertama kali kita foroboth yaa sayang wkwkwkw , waktu itu kaya gimana gituu aku sebenernya kurang siap tuh fotoboth waktu itu tapi kalo ada kamu pasti aku mau</p>
+            <div class="text-yellow-500 mt-2">★★★★★</div>
+          </div>
+        </div>
+        
+        <div class="photo-card w-full sm:w-5/12 md:w-3/12 rounded-xl overflow-hidden bg-white">
+          <img src="gambar/WhatsApp Image 2025-06-28 at 10.41.35.jpeg" alt="Pasangan memegang tangan di jalan dengan daun jatuh musim gugur" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="font-semibold text-lg mb-2">Kebun Raya Bogor date ASIKKK BANGET TAU ITUU</h3>
+            <p class="text-gray-600">Waktu pertama berangkat hampir gaa berangkat tuh karna ujan untung ajaa ujannya udah reda jadi enak , sehabis itu kita nikmatin di kebun rayaaaa , asik juga yaa sayang kita camping disana kwkwkwk sambil ngeliatin pemandangan aku berasa kayaa lega bawa kamu keluar kaya bawa keluarga simulasi eaaa , tapi momen itu banyak sih kenangannyaa sampe aku petakilan wkwkwkw maaf kan sayaa yaa ? wahai tuhan putri emang anaknya kaya ginii tapi momen itu ga bisa di lupain sampe kaki kamu pegel pegell aduhh maaf yaa ngajak kamu jalan jauh jauh , tapi momen itu momen yang gabisa di lupakan and jangan lupain akuu yaa !!! aku selalu disini 😉😉</p>
+            <div class="text-yellow-500 mt-2">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Horizontal Memory Scroll -->
+      <div class="memory-scroll flex overflow-x-auto py-4 gap-4 px-2">
+        <div class="memory-item flex-shrink-0 w-64 h-64 rounded-xl overflow-hidden">
+          <img src="gambar/WhatsApp Image 2025-06-27 at 00.00.12.jpeg" alt="Momen pertama kali kita bertemu di sebuah acara" class="w-full h-full object-cover" />
+        </div>
+        <div class="memory-item flex-shrink-0 w-64 h-64 rounded-xl overflow-hidden">
+          <img src="gambar/WhatsApp Image 2025-06-27 at 19.58.33.jpeg" alt="Foto selfie kita dengan ekspresi konyol di depan cermin" class="w-full h-full object-cover" />
+        </div>
+        <div class="memory-item flex-shrink-0 w-64 h-64 rounded-xl overflow-hidden">
+          <img src="gambar/WhatsApp Image 2025-06-27 at 19.58.13.jpeg" alt="Kita berfoto dengan keluarga dalam pesta ulang tahun" class="w-full h-full object-cover" />
+        </div>
+        <div class="memory-item flex-shrink-0 w-64 h-64 rounded-xl overflow-hidden">
+          <img src="gambar/WhatsApp Image 2025-06-27 at 19.58.14 (1).jpeg" alt="Malam tahun baru dengan kembang api di belakang kita" class="w-full h-full object-cover" />
+        </div>
+        <div class="memory-item flex-shrink-0 w-64 h-64 rounded-xl overflow-hidden">
+          <img src="gambar/WhatsApp Image 2025-06-27 at 19.58.15.jpeg" alt="Kita memakai kostum matching di sebuah acara tema" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Birthday Message -->
+  <div class="py-20 px-4 bg-gradient-to-b from-pink-50 to-white">
+    <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-lg p-8 md:p-12">
+      <h2 class="text-3xl font-bold mb-6 text-center text-pink-600 title-font">Pesan Spesial Untukmu</h2>
+      
+      <div class="prose prose-lg mx-auto">
+        <p class="mb-4">
+          Selamat ulang tahun sayang! Hari ini adalah hari yang sangat spesial karena dunia mendapat berkah dengan kelahiranmu.
+        </p>
+        
+        <p class="mb-4">
+          Terima kasih telah menjadi bagian dari hidupku. Setiap hari bersamamu adalah hadiah yang lebih berharga dari apapun. 
+        </p>
+        
+        <p class="mb-4">
+          Semoga tahun ini membawa lebih banyak kebahagiaan, kesehatan, dan kesuksesan untukmu. Kamu pantas mendapatkan yang terbaik dari dunia ini!
+        </p>
+        
+        <p class="text-xl font-semibold text-center mt-8">
+          Dengan semua cinta,<br>
+          <span class="title-font text-pink-600">Baktiar</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="bg-pink-600 text-white py-8 text-center">
+    <div class="container mx-auto px-4">
+      <p class="mb-4">&copy;  Selamat Ulang Tahun </p>
+      <button onclick="window.location.href='#top'" class="bg-white text-pink-600 px-4 py-2 rounded-full font-semibold transition hover:bg-gray-100">
+        Kembali ke Atas
+      </button>
+    </div>
+  </footer>
+  
+  <script>
+    // Create confetti effect
+    function createConfetti() {
+      const colors = ['#ff4081', '#00bcd4', '#ffeb3b', '#4caf50', '#9c27b0'];
+      const container = document.getElementById('confetti-container');
+      
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = `${Math.random() * 100}vw`;
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDuration = `${3 + Math.random() * 5}s`;
+        confetti.style.animationDelay = `${Math.random() * 2}s`;
+        container.appendChild(confetti);
+      }
+    }
+    
+    // Scroll to memories section
+    function scrollToMemories() {
+      document.getElementById('memory-gallery').scrollIntoView({
+        behavior: 'smooth'
+      });
+      
+      // Small vibration effect on scroll
+      if (navigator.vibrate) {
+        navigator.vibrate(50);
+      }
+    }
+    
+    // Initialize on page load
+    window.onload = function() {
+      createConfetti();
+      
+      // Play audio when user interacts with the page
+      document.addEventListener('click', function initAudio() {
+        const audio = document.querySelector('audio');
+        audio.play().catch(e => console.log('Auto play prevented'));
+        document.removeEventListener('click', initAudio);
+      });
+      
+      // Add parallax effect to hero section
+      window.addEventListener('scroll', function() {
+        const scrollPosition = window.pageYOffset;
+        const heroSection = document.querySelector('.min-h-screen');
+        heroSection.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+      });
+    }
+  </script>
+</body>
+</html>
+
